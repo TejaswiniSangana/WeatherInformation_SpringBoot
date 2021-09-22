@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <title>Weather Information for cities across world</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/page.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Weather Forecast</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="page-header">
+        <h1>Welcome to Current Weather Information Page </h1>
+    </div>
+
+    <table class="table table-striped table-bordered">
+        <tr>
+            <td>City Id</td>
+            <td>City Name</td>
+            <td>Country Name</td>
+            <td>Weather Code</td>
+            <td>Weather Description</td>
+            <td>Date</td>
+        </tr>
+        <tr th:each="cityWeatherInformation: ${citiesWeatherInformation}">
+            <td th:text="${cityWeatherInformation.cityId}">City Id</td>
+            <td th:text="${cityWeatherInformation.CityName}">City Name</td>
+            <td th:text="${cityWeatherInformation.CountryName}">Country Name</td>
+            <td th:text="${cityWeatherInformation.weatherCode}">Weather Code</td>
+            <td th:text="${cityWeatherInformation.description}">Weather Description</td>
+            <td th:text="${cityWeatherInformation.observationDate}">Date</td>
+        </tr>
+    </table>
+</div>
+<footer class="footer navbar-inverse navbar-fixed-bottom"></footer>
+</body>
+</html>
